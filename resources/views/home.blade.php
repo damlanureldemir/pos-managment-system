@@ -1,1 +1,1 @@
-ana sayfa
+ana sayfadır

@@ -9,15 +9,17 @@ use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\DashboardController;
 
 
 Route::prefix('admin')->name('admin.')->middleware('isLogin')->group(function (){
     Route::get('giris',[AuthController::class,'login'])->name('login');
     Route::post('giris',[AuthController::class,'loginPost'])->name('login.post');
 });
-
-
-
+Route::prefix('/')->middleware('isAdmin')->group(function (){
+    Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])->name('panel');
+    Route::get('admin/logout',[AuthController::class,'logout'])->name('admin.logout');
+});
 Route::prefix('orders')->name('orders.')->group(function () {
     Route::get('/', [OrderController::class, 'index'])->name('index');
     Route::get('/create', [OrderController::class, 'create'])->name('create');
@@ -44,7 +46,6 @@ Route::prefix('category')->name('category.')->group(function () {
     Route::post('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
 
 });
-
 Route::prefix('suppliers')->name('suppliers.')->group(function () {
     Route::get('/', [SupplierController:: class, 'index'])->name('index');
     Route::get('/create', [SupplierController::class, 'create'])->name('create');

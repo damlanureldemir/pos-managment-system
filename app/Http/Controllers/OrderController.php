@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Order_Detail;
+use App\Models\Product;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,7 +15,16 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        /**
+        $post = Order::find();
+        $order= $post->order;
+
+        echo $order->name;
+        **/
+
+        $product=Product::all();
+        $orders=Order::all();
+        return view('admin.orders.index',['product'=>$product,'orders'=>$orders]);
     }
 
     /**

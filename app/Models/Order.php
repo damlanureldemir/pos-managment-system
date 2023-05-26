@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $table='order_details';
+    protected $table='orders';
     protected $fillable=['name','address'];
     use HasFactory;
+    /**public function post(){
+        return $this->hasOne(Order_Detail::class);
+    }
+     * */
 }

@@ -33,10 +33,10 @@
                                     <thead>
                                     <tr>
                                         <th> Sipariş Adı </th>
-                                        <th> İstenilen ürünler </th>
-                                        <th> Toplam fiyat </th>
-                                        <th> Marka</th>
-                                        <th> Açıklama </th>
+                                        <th> Marka </th>
+                                        <th> Fiyat </th>
+                                        <th> Adet</th>
+                                        <th> Stok</th>
                                         <th> İşlemler </th>
                                     </tr>
                                     </thead>
@@ -48,11 +48,18 @@
                                                 <option value="{{$product->id}}">{{$product->product_name}}</option>
                                             </select>
                                             </td>
-                                            <td> {{ $product->price }}</td>
-                                            <td>{{ $product->quantity }}</td>
-                                            <td> {{ $product->brand }}</td>
-                                            <td>{{$product->getCategory->name}} </td>
-                                            <td> {{ $product->description }} </td>
+                                            <td>
+                                                <input type="number" name="quantity[]" id="quantity" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="number" name="price[]" id="price" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="number" name="discount[]" id="discount" class="form-control">
+                                            </td>
+                                            <td>
+                                                <input type="number" name="total[]" id="total" class="form-control">
+                                            </td>
                                             <td>
                                                 <a href="" class="mdi mdi-account-edit badge badge-outline-success">
                                                 </a>

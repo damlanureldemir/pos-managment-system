@@ -45,9 +45,11 @@
                                         <td>{{$category->name}}</td>
 
                                      <td>
-                                              <a category-id="" class="btn btn-sm btn-primary edit-click" title="Kategoriyi Düzenle"><i class="fa fa-edit text-white"></i></a>
+                                         <a href="" class="mdi mdi-account-edit badge badge-outline-success" title="kategoriyi düzenle">
+                                         </a>
                                        <td>
-                                       <a href="#" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times "></i></a>
+                                            <a href="" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
+                                            </a>
                                          </td>
                                     </tr>
                                 </tbody>

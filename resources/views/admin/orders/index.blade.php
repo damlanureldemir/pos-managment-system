@@ -19,10 +19,10 @@
                     {{session()->get('message')}}
                 </div>
             @endif
-            <li class="col-2 width-right nav-item dropdown d-none d-lg-block">
-                <a href="{{route('orders.create')}}" type="button" class="nav-link btn btn-success create-new-button">+ Yeni Sipariş Ekle</a>
-            </li>
-            <br>
+                <li class="col-2 width-right nav-item dropdown d-none d-lg-block">
+                    <a href="{{route('orders.create')}}" type="button" class="nav-link btn btn-success create-new-button">+ Yeni sipariş Ekle</a>
+                </li>
+                <br>
             <div class="row ">
                 <div class="col-12 grid-margin">
                     <div class="card">
@@ -33,11 +33,10 @@
                                     <thead>
                                     <tr>
                                         <th> Sipariş Adı </th>
-                                        <th> Marka </th>
+                                        <th> miktar </th>
                                         <th> Fiyat </th>
-                                        <th> Adet</th>
-                                        <th> Stok</th>
-                                        <th> İşlemler </th>
+                                        <th> indirim(%)</th>
+                                        <th> Total</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -58,12 +57,12 @@
                                                 <input type="number" name="discount[]" id="discount" class="form-control">
                                             </td>
                                             <td>
-                                                <input type="number" name="total[]" id="total" class="form-control">
+                                                <input type="number" name="total_miktar[]" id="total" class="form-control">
                                             </td>
                                             <td>
-                                                <a href="" class="mdi mdi-account-edit badge badge-outline-success">
+                                                <a href="" class="mdi mdi-account-edit badge badge-outline-success" title="siparişi düzenle">
                                                 </a>
-                                                <a  href="" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger">
+                                                <a  href="" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
                                                 </a>
                                             </td>
                                                @endforeach
@@ -73,6 +72,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col md-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>TOTAL 0.00</h4>
+                            </div>
+                            <div class="card-body">
+                                ....
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 @endsection
+

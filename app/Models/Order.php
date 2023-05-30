@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $table='orders';
-    protected $fillable=['name','address'];
+    protected $fillable=['product_id','address'];
     use HasFactory;
     /**public function post(){
         return $this->hasOne(Order_Detail::class);
     }
      * */
+    function getProduct(){
+        return $this->belongsTo('App\Models\Product','id','product_id');
+    }
+
 }

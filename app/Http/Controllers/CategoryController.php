@@ -60,6 +60,18 @@ class CategoryController extends Controller
     {
         //
     }
+    public function delete($id)
+    {
+        $product = Product::find($id); // Sileceğiniz ürünü veritabanından alın
+
+        if ($product) {
+            $product->delete(); // Ürünü sil
+            return response()->json(['message' => 'Ürün başarıyla silindi.']);
+        }
+
+        return response()->json(['message' => 'Ürün bulunamadı.']);
+    }
+
 
     /**
      * Remove the specified resource from storage.

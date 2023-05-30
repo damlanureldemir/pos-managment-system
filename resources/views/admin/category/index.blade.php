@@ -47,6 +47,7 @@
                                      <td>
                                          <a href="" class="mdi mdi-account-edit badge badge-outline-success" title="kategoriyi düzenle">
                                          </a>
+                                     </td>
                                        <td>
                                             <a href="" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
                                             </a>

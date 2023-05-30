@@ -33,6 +33,9 @@ class OrderController extends Controller
     public function create()
     {
         //
+        $product=Product::all();
+        $orders=Order::all();
+        return view('admin.orders.create',['product'=>$product,'orders'=>$orders]);
     }
 
     /**

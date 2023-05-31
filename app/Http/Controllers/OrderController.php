@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Order_Detail;
 use App\Models\Product;
@@ -43,7 +44,12 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $orders= new Order();
+        $orders->address=$request->address;
+        $orders->product_id=$request->product_id;
+        $orders->save();
+
+        return redirect()->back()->with('success','Kategori Başarıyla Oluşturuldu');
     }
 
     /**
@@ -73,6 +79,16 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
+    public function delete($id)
+    {
+        $orders = Order::find($id); // Sileceğiniz ürünü veritabanından al
+
+        if ($orders) {
+            $orders->delete(); // Ürünü sil
+            return redirect()->route('orders.index')->with('success','Ürün başarıyla silindi.');
+        }
+        return redirect()->route('orders.index');
+    }
     public function destroy(Order $order)
     {
         //

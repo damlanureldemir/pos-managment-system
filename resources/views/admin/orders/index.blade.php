@@ -27,42 +27,39 @@
                 <div class="col-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
+                            @if(session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
                             <div class="col-12 grid-margin">
                                 <h4 class="card-title">Sipariş Listesi</h4>
                                 <table class="table_t">
                                     <thead>
                                     <tr>
                                         <th> Sipariş Adı </th>
-                                        <th> miktar </th>
-                                        <th> Fiyat </th>
+                                        <th> Ürünün resmi </th>
                                         <th> indirim(%)</th>
-                                        <th> Total</th>
+                                        <th> Marka </th>
+                                        <th> Fiyat</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($orders as $orders)
                                         <tr>
+                                            @foreach($product as $product)
+                                            <td> {{ $product->product_name }}</td>
                                             <td>
-                                            <select name="product_id" id="product_id" class="form-control product_id">
-                                                @foreach($product as $product)
-                                                <option value="{{$product->id}}">{{$product->product_name}}</option>
-                                            </select>
+                                                <br>
+                                                <img height="100" width="100" src="{{asset($product->image)}}" >
+                                                <br>
                                             </td>
-                                            <td>
-                                                <input type="number" name="quantity[]" id="quantity" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input type="number" name="price[]" id="price" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input type="number" name="discount[]" id="discount" class="form-control">
-                                            </td>
-                                            <td>
-                                                <input type="number" name="total_miktar[]" id="total" class="form-control">
-                                            </td>
+                                                <td>{{ $product->quantity }}</td>
+                                                <td> {{ $product->brand }}</td>
+                                                <td> {{ $product->price }}</td>
+                                            @endforeach
                                             <td>
                                                 <a href="" class="mdi mdi-account-edit badge badge-outline-success" title="siparişi düzenle">
                                                 </a>
-                                                <a  href="" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
+                                                <a  href="{{route('orders.delete',$orders->id)}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
                                                 </a>
                                             </td>
                                                @endforeach
@@ -85,4 +82,13 @@
                 </div>
             </div>
 @endsection
+                <script>
+                    setTimeout(function() {
+                        var messageElement = document.querySelector('.alert');
+                        if (messageElement) {
+                            messageElement.style.display = 'none';
+                        }
+                    }, 5000);
+                </script>
+
 

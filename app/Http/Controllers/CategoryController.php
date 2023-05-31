@@ -67,11 +67,9 @@ class CategoryController extends Controller
 
         if ($category) {
             $category->delete(); // Ürünü sil
-            Session::flash('message',"ürün başarıyla silindi");
             Session::forget('message');
             return redirect()->route('category.index')->with('success','Ürün başarıyla silindi.');
         }
-        Session::flash('message',"ürün bulunamadı");
         Session::forget('message');
         return redirect()->route('category.index');
     }

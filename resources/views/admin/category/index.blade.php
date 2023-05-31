@@ -31,6 +31,9 @@
                 <div class="card-body">
 
                     <div class="card-body">
+                        @if(session('success'))
+                            <div class="alert alert-success">{{ session('success') }}</div>
+                        @endif
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -48,10 +51,10 @@
                                          <a href="" class="mdi mdi-account-edit badge badge-outline-success" title="kategoriyi düzenle">
                                          </a>
                                      </td>
-                                       <td>
-                                            <a href="" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
-                                            </a>
-                                         </td>
+                                        <td>
+                                               <a href="{{route('category.delete',$category->id)}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
+                                               </a>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 @endforeach
@@ -118,4 +121,12 @@
 
 
 @endsection
+        <script>
+            setTimeout(function() {
+                var messageElement = document.querySelector('.alert');
+                if (messageElement) {
+                    messageElement.style.display = 'none';
+                }
+            }, 5000);
+        </script>
 

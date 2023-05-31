@@ -27,6 +27,9 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
+                                @if(session('success'))
+                                    <div class="alert alert-success">{{ session('success') }}</div>
+                                @endif
                                 <div class="col-12 grid-margin">
                                     <h4 class="card-title">Ürün Listesi</h4>
                                     <table class="table_t">
@@ -59,7 +62,7 @@
                                                 <td>
                                                     <a href="" class="mdi mdi-account-edit badge badge-outline-success">
                                                     </a>
-                                                    <a  href="" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger">
+                                                    <a  href="{{route('products.delete',$rs->id)}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger">
                                                     </a>
                                                 </td>
                                             </tr>
@@ -71,3 +74,11 @@
                     </div>
                 </div>
 @endsection
+                    <script>
+                        setTimeout(function() {
+                            var messageElement = document.querySelector('.alert');
+                            if (messageElement) {
+                                messageElement.style.display = 'none';
+                            }
+                        }, 5000);
+                    </script>

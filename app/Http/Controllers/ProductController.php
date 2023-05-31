@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use DB;
 use File;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -75,14 +76,24 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(Request $request, Product $product)
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      */
+    public function delete($id)
+    {
+        $product = Product::find($id); // Sileceğiniz ürünü veritabanından alın
+
+        if ($product) {
+            $product->delete(); // Ürünü sil
+            return redirect()->route('products.index')->with('success','Ürün başarıyla silindi.');;
+        }
+        return redirect()->route('products.index');
+    }
     public function destroy(Product $product)
     {
         //

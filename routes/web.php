@@ -33,7 +33,7 @@ Route::prefix('products')->name('products.')->group(function () {
     Route::get('/create', [ProductController::class, 'create'])->name('create');
     Route::post('/store', [ProductController::class, 'store'])->name('store');
     Route::post('/update/{id}', [ProductController::class, 'update'])->name('update');
-    Route::post('/delete/{id}', [ProductController::class, 'delete'])->name('delete');
+    Route::get('/delete/{id}',[ProductController::class,'delete'])->name('delete');
 
 });
 
@@ -43,8 +43,7 @@ Route::prefix('category')->name('category.')->group(function () {
     Route::get('/create', [CategoryController::class, 'create'])->name('create');
     Route::post('/store', [CategoryController::class, 'store'])->name('store');
     Route::post('/update/{id}', [CategoryController::class, 'update'])->name('update');
-    Route::post('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
-
+    Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
 });
 Route::prefix('suppliers')->name('suppliers.')->group(function () {
     Route::get('/', [SupplierController:: class, 'index'])->name('index');

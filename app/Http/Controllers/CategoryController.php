@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -62,14 +63,17 @@ class CategoryController extends Controller
     }
     public function delete($id)
     {
-        $product = Product::find($id); // Sileceğiniz ürünü veritabanından alın
+        $category = Category::find($id); // Sileceğiniz ürünü veritabanından alın
 
-        if ($product) {
-            $product->delete(); // Ürünü sil
-            return response()->json(['message' => 'Ürün başarıyla silindi.']);
+        if ($category) {
+            $category->delete(); // Ürünü sil
+            Session::flash('message',"ürün başarıyla silindi");
+            Session::forget('message');
+            return redirect()->route('category.index')->with('success','Ürün başarıyla silindi.');
         }
-
-        return response()->json(['message' => 'Ürün bulunamadı.']);
+        Session::flash('message',"ürün bulunamadı");
+        Session::forget('message');
+        return redirect()->route('category.index');
     }
 
 

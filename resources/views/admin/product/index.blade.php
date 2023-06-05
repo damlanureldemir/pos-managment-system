@@ -60,7 +60,7 @@
                                                 <td>{{$rs->getCategory->name}} </td>
                                                 <td> {{ $rs->description }} </td>
                                                 <td>
-                                                    <a href="" class="mdi mdi-account-edit badge badge-outline-success">
+                                                    <a href="{{route('products.edit',$rs->id)}}" class="mdi mdi-account-edit badge badge-outline-success">
                                                     </a>
                                                     <a  href="{{route('products.delete',$rs->id)}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger">
                                                     </a>

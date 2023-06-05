@@ -16,12 +16,6 @@ class OrderController extends Controller
      */
     public function index()
     {
-        /**
-        $post = Order::find();
-        $order= $post->order;
-
-        echo $order->name;
-        **/
 
         $product=Product::all();
         $orders=Order::all();

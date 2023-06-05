@@ -56,7 +56,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -66,7 +66,7 @@ class CategoryController extends Controller
 
         if ($category) {
             $category->delete(); // Ürünü sil
-            return redirect()->route('category.index')->with('success','Ürün başarıyla silindi.');
+            return redirect()->route('category.index')->with('success','Kategori başarıyla silindi.');
         }
         return redirect()->route('category.index');
     }

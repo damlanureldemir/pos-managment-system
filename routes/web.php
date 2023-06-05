@@ -24,6 +24,7 @@ Route::prefix('orders')->name('orders.')->group(function () {
     Route::get('/', [OrderController::class, 'index'])->name('index');
     Route::get('/create', [OrderController::class, 'create'])->name('create');
     Route::post('/store', [OrderController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [OrderController::class, 'update'])->name('update');
     Route::get('/delete/{id}', [OrderController::class, 'delete'])->name('delete');
 });

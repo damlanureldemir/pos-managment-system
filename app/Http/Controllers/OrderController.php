@@ -43,7 +43,7 @@ class OrderController extends Controller
         $orders->product_id=$request->product_id;
         $orders->save();
 
-        return redirect()->back()->with('success','Kategori Başarıyla Oluşturuldu');
+        return redirect()->back()->with('success','Sipariş Başarıyla Oluşturuldu');
     }
 
     /**
@@ -57,17 +57,24 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Order $order)
+    public function edit($id)
     {
-        //
+        $orders=Order::find($id);
+        $product=Product::get();
+        return view('admin.orders.update',compact('product','orders'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request,$id)
     {
-        //
+        $orders=Order::findOrFail($id);
+        $orders->address=$request->address;
+        $orders->product_id=$request->product_id;
+        $orders->save();
+
+        return redirect()->route('orders.index')->with('success','Ürün başarıyla güncellendi.');;
     }
 
     /**
@@ -79,7 +86,7 @@ class OrderController extends Controller
 
         if ($orders) {
             $orders->delete(); // Ürünü sil
-            return redirect()->route('orders.index')->with('success','Ürün başarıyla silindi.');
+            return redirect()->route('orders.index')->with('success','Sipariş başarıyla silindi.');
         }
         return redirect()->route('orders.index');
     }

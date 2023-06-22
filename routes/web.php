@@ -24,6 +24,7 @@ Route::prefix('orders')->name('orders.')->group(function () {
     Route::get('/', [OrderController::class, 'index'])->name('index');
     Route::get('/create', [OrderController::class, 'create'])->name('create');
     Route::post('/store', [OrderController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [OrderController::class, 'update'])->name('update');
     Route::get('/delete/{id}', [OrderController::class, 'delete'])->name('delete');
 });
@@ -32,6 +33,7 @@ Route::prefix('products')->name('products.')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('index');
     Route::get('/create', [ProductController::class, 'create'])->name('create');
     Route::post('/store', [ProductController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
     Route::post('/update/{id}', [ProductController::class, 'update'])->name('update');
     Route::get( '/delete/{id}',[ProductController::class,'delete'])->name('delete');
 

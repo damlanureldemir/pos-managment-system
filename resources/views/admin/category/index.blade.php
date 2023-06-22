@@ -43,16 +43,11 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($category as $category)
+                                @foreach($category as $cat)
                                     <tr>
-                                        <td>{{$category->name}}</td>
-
-                                     <td>
-                                         <a href="" class="mdi mdi-account-edit badge badge-outline-success" title="kategoriyi düzenle">
-                                         </a>
-                                     </td>
+                                        <td>{{$cat->name}}</td>
                                         <td>
-                                               <a href="{{route('category.delete',$category->id)}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
+                                               <a href="{{route('category.delete',$cat->id)}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
                                                </a>
                                         </td>
                                     </tr>

@@ -57,7 +57,7 @@
                                                 <td> {{ $product->price }}</td>
                                             @endforeach
                                             <td>
-                                                <a href="" class="mdi mdi-account-edit badge badge-outline-success" title="siparişi düzenle">
+                                                <a href="{{route('orders.edit',$orders->id)}}" class="mdi mdi-account-edit badge badge-outline-success" title="siparişi düzenle">
                                                 </a>
                                                 <a  href="{{route('orders.delete',$orders->id)}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" class="mdi mdi-delete badge badge-outline-danger" title="sil">
                                                 </a>

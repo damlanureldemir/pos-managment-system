@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+
 
     protected $table = 'products';
     protected $fillable = [
@@ -20,13 +19,11 @@ class Product extends Model
         'category_id',
         'alert_stock',
     ];
-    function getCategory(){
-        return $this->hasOne('App\Models\Category','id','category_id');
+    public function orderdetail(){
+        return $this->hasMany('App\Order_Detail');
     }
 
-    function orders(){
 
-        return $this->hasMany('App\Models\Order','product_id','id');
 
-    }
+
 }

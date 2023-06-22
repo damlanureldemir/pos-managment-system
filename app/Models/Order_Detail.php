@@ -16,5 +16,12 @@ class Order_Detail extends Model
         return $this->belongsTo(Order::class);
     }
      * */
+    public function product(){
+        return $this->belongsTo('App\Product');
+    }
+    public function order(){
+        return $this->belongsTo('App\Order','foreign_key','local_key');
+    }
+
 
 }

@@ -35,6 +35,7 @@
                                     <table class="table_t">
                                         <thead>
                                         <tr>
+                                            <th> Ürün Kodu </th>
                                             <th> Ürün Adı </th>
                                             <th> Ürün Resmi </th>
                                             <th> Fiyat </th>
@@ -48,6 +49,7 @@
                                         <tbody>
                                         @foreach($product as $rs)
                                             <tr>
+                                                <td> {{ $rs->product_code }}</td>
                                                 <td> {{ $rs->product_name }}</td>
                                                 <td>
                                                     <br>
@@ -82,3 +84,5 @@
                             }
                         }, 5000);
                     </script>
+            </div>
+        </div>

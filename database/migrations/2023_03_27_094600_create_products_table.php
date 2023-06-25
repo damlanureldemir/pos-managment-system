@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('image');
             $table->integer('price');
             $table->integer('quantity');
+            $table->string('product_code')->nullable();
+            $table->text('barcode')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->integer('alert_stock')->default('100');
             $table->timestamps();

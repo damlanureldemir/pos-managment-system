@@ -8,6 +8,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use File;
 use Illuminate\Support\Facades\Session;
+use Picqer;
 
 class ProductController extends Controller
 {
@@ -34,13 +35,19 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
+        $product_code=rand(106890122,100000000);
+        $redColor='255,0,0';
+        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+        $barcodes=$generator->getBarcode($product_code,
+        $generator::TYPE_STANDARD_2_5,2,60);
         $product = new Product();
         $product->product_name=$request->product_name;
         $product->description=$request->description;
         $product->price=$request->price;
         $product->brand=$request->brand;
         $product->quantity=$request->quantity;
+        $product->product_code=$product_code;
+        $product->barcode=$barcodes;
         //$product->alert_stock=$request->alert_stock;
         $product->category_id=$request->category;
 
@@ -79,12 +86,20 @@ class ProductController extends Controller
 
     public function update(Request $request,$id)
     {
+        $product_code=rand(106890122,100000000);
+        $redColor='255,0,0';
+        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+        $barcodes=$generator->getBarcode($product_code,
+        $generator::TYPE_STANDARD_2_5,2,60);
+
         $product = Product::findOrFail($id);
         $product->product_name=$request->product_name;
         $product->description=$request->description;
         $product->price=$request->price;
         $product->brand=$request->brand;
         $product->quantity=$request->quantity;
+        $product->product_code=$product_code;
+        $product->barcode=$product_code . 'jpg';
         //$product->alert_stock=$request->alert_stock;
         $product->category_id=$request->category;
 
@@ -120,6 +135,11 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+    public function GetBarcodes(Request $request)
+    {
+        $productsBarcode=Product::where('barcode','product_code')->get();
+        return view('admin.product.barcode.index',compact('productsBarcode'));
     }
 }
 

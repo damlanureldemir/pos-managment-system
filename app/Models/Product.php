@@ -23,7 +23,9 @@ class Product extends Model
         return $this->hasMany('App\Order_Detail');
     }
 
-
+    public function getCategory(){
+        return $this->belongsTo('App\Models\Category','category_id','id');
+    }
 
 
 }

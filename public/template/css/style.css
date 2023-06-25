@@ -23910,6 +23910,9 @@ dl li {
 .horizontal-menu .bottom-navbar .page-navigation > .nav-item.active > .nav-link .menu-icon {
   color: #0ddbb9;
 }
+.nav-item .fa-barcode{
+    padding-top:30;
+}
 
 .horizontal-menu .bottom-navbar .page-navigation > .nav-item.active > .nav-link .menu-title,
 .horizontal-menu .bottom-navbar .page-navigation > .nav-item.active > .nav-link i,

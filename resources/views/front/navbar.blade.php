@@ -103,16 +103,7 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link count-indicator "><i class="mdi mdi-message-reply-text"></i></a>
                     </li>
-                    <li class="nav-item nav-search d-none d-lg-block ms-3">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                      <span class="input-group-text" id="search">
-                        <i class="mdi mdi-magnify"></i>
-                      </span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="search" aria-label="search" aria-describedby="search">
-                        </div>
-                    </li>
+
                 </ul>
                 <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                     <a class="navbar-brand brand-logo" href="index.html"><img src="https://www.connectpos.com/wp-content/uploads/shopify-pos.png" style="width:170px;height: 170px" alt="logo"/></a>
@@ -180,12 +171,6 @@
                         <span class="menu-title">Kasiyerler</span>
                         <i class="menu-arrow"></i>
                     </a>
-                    <div class="submenu">
-                        <ul>
-                            <li class="nav-item"><a class="nav-link" href="{{asset('template/')}}/pages/ui-features/buttons.html">Buttons</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{asset('template/')}}/pages/ui-features/typography.html">Typography</a></li>
-                        </ul>
-                    </div>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('products.index')}}" class="nav-link">
@@ -200,16 +185,9 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="mdi mdi-finance menu-icon"></i>
-                        <span class="menu-title">Raporlar</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="" class="nav-link">
-                        <i class="mdi mdi-grid menu-icon"></i>
-                        <span class="menu-title">Çalışanlar</span>
+                    <a href="{{route('products.barcode')}}" class="nav-link">
+                        <i class="fa fa-barcode"></i>
+                        <span class="menu-title">Barkodlar</span>
                         <i class="menu-arrow"></i>
                     </a>
                 </li>

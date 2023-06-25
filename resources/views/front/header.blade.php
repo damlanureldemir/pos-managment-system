@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
     <!-- base:css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-...yaygF7ldDwpb8fjhA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{asset('template/')}}/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{asset('template/')}}/vendors/base/vendor.bundle.base.css">
     <!-- endinject -->

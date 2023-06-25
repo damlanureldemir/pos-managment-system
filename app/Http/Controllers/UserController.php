@@ -12,7 +12,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index');
+        $users = User::all();
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -28,7 +29,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $users=new User();
+        $users->name=$request->name;
+        $users->email=$request->email;
+        $users->password=md5($request->name);
+        $users->is_admin=$request->is_admin;
+        $users->save();
+        if($users){
+            return redirect()->back()->with('success','Kullanıcı Olusturma Basarılı ');
+        }
+        return redirect()->back()->with('error','İşlem Başarısız');
+
     }
 
     /**

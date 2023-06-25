@@ -31,7 +31,7 @@
 
                 </tr>
 
-                @foreach($orders_receipt as $receipt  )
+                @foreach($order_receipt as $receipt  )
                 <tr class="service">
                     <td class="tableitem"><p class="itemtext">{{$receipt->product_name}}</p></td>
                     <td class="tableitem"><p class="itemtext">{{number_format($receipt->unitprice,2)}}</p> </td>
